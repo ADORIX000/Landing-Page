@@ -45,22 +45,32 @@ body {
   color: var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
 
-  /* smooth base gradient */
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 55%, var(--bg) 100%);
+  /* --- LAYER 1: The Image (Bottom) --- */
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-/* Subtle overlay glow WITHOUT banding/lines */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(900px 520px at 18% 18%, rgba(18,178,193,0.12), transparent 70%),
-    radial-gradient(980px 560px at 82% 12%, rgba(13,138,158,0.10), transparent 72%),
-    radial-gradient(1200px 720px at 50% 90%, rgba(35,113,123,0.06), transparent 75%);
+  inset: 0; /* Covers the whole screen */
+  z-index: -1; /* Sends it behind the text */
+
+  /* --- LAYER 2: The Gradient (Top) --- */
+  /* This is your original Adorix theme gradient */
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 55%, var(--bg) 100%);
+
+  /* --- OPACITY CONTROL --- */
+  /* This controls how "strong" the gradient is. */
+  /* 0.90 = Strong Blue Color / Faint Image (Recommended) */
+  /* 0.50 = Weak Blue Color / Strong Image */
+  opacity: 0.94;
 }
 
 a { color: inherit; text-decoration: none; }
