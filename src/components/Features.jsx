@@ -79,7 +79,7 @@ export default function Features() {
       <div className="sectionHead">
         <h2 className="h2">Everything you need to run smarter on-site campaigns</h2>
         <p className="muted">
-          Built for malls, airports, retail, events—anywhere foot traffic matters.
+          Built for malls, airports, retail, events anywhere foot traffic matters.
         </p>
       </div>
 

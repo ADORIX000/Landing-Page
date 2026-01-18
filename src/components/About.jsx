@@ -4,7 +4,7 @@ export default function About() {
       <div className="sectionHead">
         <h2 className="h2">Built for privacy-aware, real-world marketing</h2>
         <p className="muted">
-          ADORIX helps brands and venues deliver useful, timely messages on-site—without collecting unnecessary
+          ADORIX helps brands and venues deliver useful, timely messages on-site without collecting unnecessary
           personal data.
         </p>
       </div>
@@ -14,7 +14,7 @@ export default function About() {
           <p className="eyebrow">Vision</p>
           <h3 className="h3">Adaptive on-site advertising that respects people.</h3>
           <p className="muted">
-            Make on-site advertising as measurable and flexible as digital—while staying privacy-forward.
+            Make on-site advertising as measurable and flexible as digital while staying privacy forward.
           </p>
 
           <div className="stats">

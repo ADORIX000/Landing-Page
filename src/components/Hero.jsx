@@ -12,7 +12,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero__subtitle">
-          ADORIX helps venues run on-site campaigns that adapt in real time—detecting attention,
+          ADORIX helps venues run on-site campaigns that adapt in real time detecting attention,
           learning audiences, and delivering the right creative at the right moment.
         </p>
 

@@ -2,7 +2,7 @@ const PLANS = [
   {
     name: "Starter",
     price: "$199",
-    cadence: "/ month",
+    cadence: "per month",
     badge: null,
     desc: "Single-kiosk pilots and quick validation.",
     features: ["Basic audience analytics", "Scheduling rules", "Weekly summary", "Email support"],
@@ -12,7 +12,7 @@ const PLANS = [
   {
     name: "Growth",
     price: "$499",
-    cadence: "/ month",
+    cadence: "per month",
     badge: "Most Popular",
     desc: "For high-traffic locations and better insights.",
     features: ["Real-time dashboard", "Advanced targeting rules", "A/B creative testing", "Priority support"],
@@ -37,7 +37,7 @@ export default function Pricing() {
       <div className="sectionHead">
         <h2 className="h2">Simple plans that scale with your venues</h2>
         <p className="muted">
-          Start small, prove results, then expand—no complicated setup.
+          Start small, prove results, then expand no complicated setup.
         </p>
       </div>
 
