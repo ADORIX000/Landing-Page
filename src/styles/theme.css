@@ -437,6 +437,13 @@ button { font: inherit; }
   font-size: 12px;
   color: var(--muted);
 }
+
+.mediaFrame__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crucial: This forces the video to fill the box */
+  display: block;
+}
 .mediaFrame__text span { color: var(--muted2); }
 
 .hero__telemetry {
@@ -598,31 +605,100 @@ button { font: inherit; }
   .stats { grid-template-columns: 1fr; }
 }
 
-/* Team */
-.teamGrid { align-items: stretch; }
-.teamCard { padding: 18px; text-align: center; }
+/* --- Team Card Container --- */
+.teamCard {
+  /* Remove fixed height so it shrinks to fit content */
+  min-height: auto; 
+  padding: 1.5rem;
+  
+  /* Flex layout to stack items neatly */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  /* Smooth transition for the hover lift */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Keeps everything inside the border radius */
+}
+
+.teamCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* stronger shadow on hover */
+}
+
+/* --- The Avatar (Big Rounded Square) --- */
 .teamAvatar {
-  width: 108px;
-  height: 108px;
-  border-radius: 26px;
-  margin: 0 auto 14px;
-  background: rgba(229, 249, 248, 0.92);
-  border: 1px solid rgba(31, 43, 45, 0.10);
-  display: grid;
-  place-items: center;
+  /* increased size to fill space and look "scalable" */
+  width: 220px; 
+  height: 220px; 
+  
+  /* Rounded square shape */
+  border-radius: 20px; 
+  
+  margin-bottom: 1rem;
   overflow: hidden;
+  flex-shrink: 0; /* Prevents image from squishing */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-.teamInitial { font-weight: 900; font-size: 34px; color: var(--ink); }
-.teamName { margin: 0; font-size: 16px; font-weight: 900; color: var(--ink); }
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the photo fills the square perfectly */
+  transition: transform 0.5s ease;
+}
+
+/* Optional: Slight zoom of photo on hover */
+.teamCard:hover .avatarImg {
+  transform: scale(1.05);
+}
+
+/* --- Text Styling --- */
+.teamName {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1a202c; /* Dark color for readability */
+}
+
 .teamRole {
-  margin: 6px 0 10px;
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  color: #008080; /* Teal color matching your brand */
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
-  color: var(--teal-700);
-  font-weight: 900;
+  letter-spacing: 0.5px;
 }
-.teamBio { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* --- The Hover Reveal Effect --- */
+
+.bioWrapper {
+  /* This wrapper handles the slide-down animation */
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease-out;
+}
+
+.teamBio {
+  /* IMPORTANT: Dark color so it is visible on your light background */
+  color: #4a5568; 
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* When hovering the CARD, open the bio wrapper */
+.teamCard:hover .bioWrapper {
+  grid-template-rows: 1fr; /* Expands to fit content */
+  margin-top: 0.5rem;      /* Adds a little breathing room */
+}
+
+.teamCard:hover .teamBio {
+  opacity: 1; /* Make text fully visible */
+}
 
 /* Contact */
 .contactGrid {

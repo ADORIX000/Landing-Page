@@ -1,13 +1,42 @@
 import TeamCard from "./TeamCard.jsx";
 
 const MEMBERS = [
-  { name: "Deeghayu Arandara", role: "Founder & Product", bio: "Turns venue problems into simple product flows." },
-
-  { name: "Binethma Jayawickrama ", role: "Operations Lead", bio: "Keeps deployments smooth and consistent." },
-  { name: "Sithika Weerasinghe", role: "Software Engineer", bio: "Builds fast, reliable dashboards and tools." },
-  { name: "Chanithma Dangalla", role: "AI/ML Engineer", bio: "Focuses on audience signals and insight quality." },
-  { name: "Sahan Adithya", role: "Design & UX", bio: "Makes the kiosk experience clear and friendly." },
-  { name: "Lithira Kalubowila", role: "Partnerships", bio: "Works with venues and brands to scale rollouts." },
+  {  
+    name: "Deeghayu Arandara", 
+    role: "Team Lead & IoT Architect", 
+    bio: "Orchestrates the system architecture and hardware integration.",
+    img: "/team/deeghayu.jpeg" // Update with your actual file name
+  },
+  { 
+    name: "Binethma Jayawickrama", 
+    role: "Computer Vision Engineer", 
+    bio: "Powers the real-time audience detection and demographics.",
+    img: "/team/binethma.jpeg"
+  },
+  { 
+    name: "Sithika Weerasinghe", 
+    role: "Full Stack Developer", 
+    bio: "Crafts the user interface and client analytics platform.",
+    img: "/team/sithika.jpeg"
+  },
+  { 
+    name: "Chanithma Dangalla", 
+    role: "Backend Developer", 
+    bio: "Optimizes the backend logic for smart ad targeting.",
+    img: "/team/chanithma.jpeg"
+  },
+  { 
+    name: "Sahan Adithya", 
+    role: "AI Interaction Designer", 
+    bio: "Enables natural voice interaction and AI conversations.",
+    img: "/team/sahan.jpeg"
+  },
+  { 
+    name: "Lithira Kalubowila", 
+    role: "Data Analytics Specialist", 
+    bio: "Measures gaze and attention for engagement insights.",
+    img: "/team/lithira.jpeg"
+  }
 ];
 
 export default function Team() {
