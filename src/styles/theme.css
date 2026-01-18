@@ -264,6 +264,13 @@ button { font: inherit; }
   font-weight: 900;
 }
 
+.nav__logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
 .nav__text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; }
 .nav__title { font-weight: 900; letter-spacing: 0.08em; font-size: 18px; }
 

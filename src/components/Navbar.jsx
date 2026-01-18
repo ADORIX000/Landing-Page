@@ -35,7 +35,7 @@ export default function Navbar() {
     <header className={cls}>
       <div className="nav__inner">
         <button className="nav__brand" onClick={() => scrollTo("home")} type="button">
-          <div className="nav__mark">A</div>
+          <img src="/logo.png" alt="ADORIX Logo" className="nav__logo" />
           <div className="nav__text">
             <div className="nav__title">ADORIX</div>
           </div>
