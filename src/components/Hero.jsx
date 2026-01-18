@@ -1,94 +1,95 @@
-import React from "react";
-import { motion } from "framer-motion";
-import heroVideo from "../assets/hero-demo.mp4"; // your local demo video
-
-const YOUTUBE_URL = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"; // <- put your real link here
-
-const Hero = () => {
-  const handleWatchDemo = () => {
-    window.open(YOUTUBE_URL, "_blank", "noopener,noreferrer");
-  };
-
+export default function Hero() {
   return (
-    <section className="hero">
-      <div className="hero__glow hero__glow--left" />
-      <div className="hero__glow hero__glow--right" />
-      <div className="hero__content">
-        {/* LEFT TEXT SIDE */}
-        <motion.div
-          className="hero__text"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-        >
-          <p className="hero__eyebrow">AI-Powered Advertising Kiosk</p>
-          <h1 className="hero__title">
-            Amplify Your Brand with{" "}
-            <span className="hero__title-highlight">Intelligent On-Site</span>{" "}
-            Advertising
-          </h1>
-          <p className="hero__subtitle">
-            ADORIX uses computer vision, demographics and an AI avatar to turn
-            every passerby into a measurable opportunity – in real time.
-          </p>
+    <div className="hero__grid">
+      {/* Left */}
+      <div>
+        <p className="eyebrow">AI-Powered Advertising Kiosk</p>
 
-          <div className="hero__actions">
-            <button className="btn btn--primary">Get Free Consultation</button>
+        <h1 className="hero__title">
+          Turn foot traffic into <span className="gradText">measurable demand</span>.
+        </h1>
 
-            {/* Watch demo opens YouTube in new tab */}
-            <button className="btn btn--ghost" onClick={handleWatchDemo}>
-              <span className="btn__icon">▶</span> Watch Kiosk Demo
-            </button>
-          </div>
+        <p className="hero__subtitle">
+          ADORIX helps venues run on-site campaigns that adapt in real time etecting attention,
+          learning audiences, and delivering the right creative at the right moment.
+        </p>
 
-          <div className="hero__metrics">
-            <div className="metric">
-              <span className="metric__label">24/7</span>
-              <span className="metric__value">Smart ad delivery</span>
-            </div>
-            <div className="metric">
-              <span className="metric__label">21+</span>
-              <span className="metric__value">Industries ready</span>
-            </div>
-            <div className="metric">
-              <span className="metric__label">Real-time</span>
-              <span className="metric__value">Analytics & engagement</span>
-            </div>
-          </div>
-        </motion.div>
+        <div className="hero__cta">
+          <button className="btn btn--primary" type="button">
+            Get Free Consultation
+          </button>
+          <button className="btn btn--primary" type="button">
+            Watch Kiosk Demo
+          </button>
+        </div>
 
-        {/* RIGHT VIDEO CARD SIDE */}
-        <motion.div
-          className="hero__card"
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-        >
-          <div className="hero__card-inner">
-            <div className="hero__video-wrapper">
-              <video
-                className="hero__video"
-                src={heroVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            </div>
+        <div className="hero__meta">
+          <span>Privacy-aware</span>
+          <span className="dot" />
+          <span>Real-time analytics</span>
+          <span className="dot" />
+          <span>Remote managed</span>
+        </div>
 
-            <div className="hero__card-text">
-              “This is what an ADORIX kiosk looks like in action – adaptive ads,
-              live analytics and an AI avatar greeting every passerby.”
-            </div>
-            <div className="hero__card-footer">
-              Tip: We recommend a short 15–30s loop that shows your kiosk in a
-              real location.
-            </div>
-          </div>
-        </motion.div>
+        <div className="hero__chips">
+          <span className="chip">Smart Ad Delivery</span>
+          <span className="chip">Audience Insights</span>
+          <span className="chip">AI Avatar Engagement</span>
+          <span className="chip">Campaign Rules</span>
+        </div>
       </div>
-    </section>
-  );
-};
 
-export default Hero;
+      {/* Right */}
+      <div className="glassCard hero__card cardHover">
+        <div className="hero__cardTop">
+          <span className="hero__badge">Live Kiosk Preview</span>
+          <span className="hero__mini">Replace with your demo video/image</span>
+        </div>
+
+        <div className="mediaFrame">
+          <div className="mediaFrame__placeholder">
+            <div className="mediaFrame__ring" />
+            <p className="mediaFrame__text">
+              Drop a video here later <br />
+              <span>(16:9)</span>
+            </p>
+          </div>
+        </div>
+
+        <div className="hero__telemetry">
+          <div className="telemetryRow">
+            <span className="telemetryKey">Dwell</span>
+            <span className="telemetryVal">18s</span>
+          </div>
+          <div className="telemetryRow">
+            <span className="telemetryKey">Engagement</span>
+            <span className="telemetryVal">High</span>
+          </div>
+          <div className="telemetryRow">
+            <span className="telemetryKey">Audience</span>
+            <span className="telemetryVal">20–35</span>
+          </div>
+          <div className="telemetryRow">
+            <span className="telemetryKey">Mood</span>
+            <span className="telemetryVal">Positive</span>
+          </div>
+        </div>
+
+        <div className="hero__cardBottom">
+          <div className="miniFeature">
+            <h4>Smart Targeting</h4>
+            <p>Ads adapt to audience signals in real time.</p>
+          </div>
+          <div className="miniFeature">
+            <h4>Actionable Insights</h4>
+            <p>Measure attention, visits, and conversions.</p>
+          </div>
+        </div>
+
+        <p className="hero__note">
+          Tip: you can later replace the preview box with a real <code>&lt;video&gt;</code> or kiosk render.
+        </p>
+      </div>
+    </div>
+  );
+}

@@ -1,113 +1,80 @@
-import React from "react";
-import { motion } from "framer-motion";
-
-const plans = [
+const PLANS = [
   {
-    name: "Launch",
+    name: "Starter",
     price: "$199",
-    cadence: "per month",
-    badge: "Best for pilots",
-    description: "Perfect for testing a single ADORIX kiosk in one location.",
-    features: [
-      "1 AI kiosk license",
-      "Real-time audience detection",
-      "Standard analytics dashboard",
-      "Email support",
-    ],
+    cadence: "/ month",
+    badge: null,
+    desc: "Single-kiosk pilots and quick validation.",
+    features: ["Basic audience analytics", "Scheduling rules", "Weekly summary", "Email support"],
+    cta: "Start Pilot",
+    highlight: false,
   },
   {
-    name: "Scale",
+    name: "Growth",
     price: "$499",
-    cadence: "per month",
-    badge: "Most popular",
+    cadence: "/ month",
+    badge: "Most Popular",
+    desc: "For high-traffic locations and better insights.",
+    features: ["Real-time dashboard", "Advanced targeting rules", "A/B creative testing", "Priority support"],
+    cta: "Talk to Sales",
     highlight: true,
-    description:
-      "Unlock data-driven campaigns across multiple high-traffic venues.",
-    features: [
-      "Up to 5 kiosk licenses",
-      "Advanced demographics & dwell-time metrics",
-      "A/B creative testing tools",
-      "Priority chat & email support",
-    ],
   },
   {
     name: "Enterprise",
-    price: "Let’s talk",
+    price: "Custom",
     cadence: "",
-    badge: "Custom",
-    description:
-      "Designed for city-wide deployments, agencies and multi-country brands.",
-    features: [
-      "Unlimited kiosks & custom SLAs",
-      "Private cloud or on-prem options",
-      "Custom integrations & APIs",
-      "Dedicated success manager",
-    ],
+    badge: null,
+    desc: "Multi-venue rollouts & integrations.",
+    features: ["Fleet management", "Custom integrations", "Dedicated success", "SLA + security review"],
+    cta: "Contact Us",
+    highlight: false,
   },
 ];
 
-const Pricing = () => {
+export default function Pricing() {
   return (
-    <section className="section section--pricing">
-      <div className="section__header">
-        <p className="section__eyebrow">Plans & Subscriptions</p>
-        <h2 className="section__title">Choose the Right ADORIX Plan</h2>
-        <p className="section__subtitle">
-          Whether you’re running a single flagship kiosk or hundreds of screens,
-          ADORIX gives you transparent, subscription-based pricing with
-          enterprise options when you’re ready to scale.
+    <>
+      <div className="sectionHead">
+        <h2 className="h2">Simple plans that scale with your venues</h2>
+        <p className="muted">
+          Start small, prove results, then expand—no complicated setup.
         </p>
       </div>
 
-      <div className="grid grid--pricing">
-        {plans.map((plan, index) => (
-          <motion.article
-            key={plan.name}
-            className={`pricing-card ${
-              plan.highlight ? "pricing-card--highlight" : ""
-            }`}
-            initial={{ opacity: 0, y: 30, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: index * 0.1 }}
+      <div className="grid grid--3">
+        {PLANS.map((p) => (
+          <div
+            key={p.name}
+            className={`glassCard pricing cardHover ${p.highlight ? "pricing--highlight" : ""}`}
           >
-            <div className="pricing-card__header">
-              <div className="pricing-card__top">
-                <h3 className="pricing-card__name">{plan.name}</h3>
-                {plan.badge && (
-                  <span className="pricing-card__badge">{plan.badge}</span>
-                )}
-              </div>
-
-              <div className="pricing-card__price-row">
-                <span className="pricing-card__price">{plan.price}</span>
-                {plan.cadence && (
-                  <span className="pricing-card__cadence">
-                    {plan.cadence}
-                  </span>
-                )}
-              </div>
-
-              <p className="pricing-card__description">{plan.description}</p>
+            <div className="pricing__top">
+              <h3 className="h3">{p.name}</h3>
+              {p.badge ? <span className="badge badge--hot">{p.badge}</span> : <span className="badge">Plan</span>}
             </div>
 
-            <ul className="pricing-card__features">
-              {plan.features.map((feature) => (
-                <li key={feature} className="pricing-card__feature">
-                  <span className="pricing-card__bullet">✦</span>
-                  <span>{feature}</span>
+            <div className="pricing__priceRow">
+              <div className="pricing__price">{p.price}</div>
+              <div className="pricing__cadence">{p.cadence}</div>
+            </div>
+
+            <p className="tiny">{p.desc}</p>
+
+            <ul className="list">
+              {p.features.map((x) => (
+                <li key={x} className="list__item">
+                  <span className="tick">✓</span>
+                  <span>{x}</span>
                 </li>
               ))}
             </ul>
 
-            <button className="btn btn--primary btn--full pricing-card__cta">
-              {plan.name === "Enterprise" ? "Book a strategy call" : "Get started"}
+            <button className="btn btn--primary btn--full" type="button">
+                {p.cta}
             </button>
-          </motion.article>
+
+          </div>
         ))}
       </div>
-    </section>
+    </>
   );
-};
-
-export default Pricing;
+}

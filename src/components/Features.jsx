@@ -1,65 +1,100 @@
-import React from "react";
-import { motion } from "framer-motion";
+function Icon({ type }) {
+  // simple “graphic” icons (stroke only) — no emojis
+  const common = {
+    width: 28,
+    height: 28,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    className: "featureSvg",
+    xmlns: "http://www.w3.org/2000/svg",
+  };
 
-const cards = [
+  switch (type) {
+    case "globe":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18" />
+          <path d="M12 3c3 3 3 15 0 18" />
+          <path d="M12 3c-3 3-3 15 0 18" />
+        </svg>
+      );
+    case "focus":
+      return (
+        <svg {...common}>
+          <path d="M4 9V6h3" />
+          <path d="M20 9V6h-3" />
+          <path d="M4 15v3h3" />
+          <path d="M20 15v3h-3" />
+          <circle cx="12" cy="12" r="3.5" />
+        </svg>
+      );
+    case "avatar":
+      return (
+        <svg {...common}>
+          <path d="M7 20c0-3 2.2-5 5-5s5 2 5 5" />
+          <circle cx="12" cy="10" r="3.2" />
+          <path d="M6.5 6.5 5 5" />
+          <path d="M17.5 6.5 19 5" />
+        </svg>
+      );
+    default: // "rules"
+      return (
+        <svg {...common}>
+          <path d="M7 7h10" />
+          <path d="M7 12h6" />
+          <path d="M7 17h10" />
+          <path d="M17 12l2 2 3-3" />
+        </svg>
+      );
+  }
+}
+
+const FEATURES = [
   {
-    title: "Real-time Audience Detection",
-    description:
-      "Recognize every face in front of the kiosk to understand who is watching – in milliseconds.",
-    icon: "👁️",
+    title: "Instant Audience Recognition",
+    desc: "Recognize viewers in milliseconds to understand who’s watching and when engagement peaks.",
+    icon: "globe",
   },
   {
-    title: "Attention Tracking",
-    description:
-      "Measure dwell time and focus to see which creatives truly capture attention.",
-    icon: "⏱️",
+    title: "Dwell + Focus Measurement",
+    desc: "Track dwell time and attention quality to learn which creatives truly perform.",
+    icon: "focus",
   },
   {
-    title: "AI Avatar Interaction",
-    description:
-      "A friendly avatar answers questions, explains offers and re-engages distracted viewers.",
-    icon: "🤖",
+    title: "AI Avatar Engagement",
+    desc: "A friendly on-screen avatar answers questions, explains offers, and re-engages distracted viewers.",
+    icon: "avatar",
   },
   {
-    title: "Data-Driven Recommendations",
-    description:
-      "Ads are picked based on age group, gender rules and campaign priorities – automatically.",
-    icon: "📊",
+    title: "Rule-Based Smart Delivery",
+    desc: "Serve ads by time, location, or audience rules—automatically prioritizing what matters most.",
+    icon: "rules",
   },
 ];
 
-const Features = () => {
+export default function Features() {
   return (
-    <section className="section">
-      <div className="section__header">
-        <p className="section__eyebrow">Core Capabilities</p>
-        <h2 className="section__title">
-          Data-Driven Strategies, Measurable Results
-        </h2>
-        <p className="section__subtitle">
-          ADORIX combines computer vision, AI avatars and smart decision logic
-          to make every kiosk behave like a digital brand ambassador.
+    <>
+      <div className="sectionHead">
+        <h2 className="h2">Everything you need to run smarter on-site campaigns</h2>
+        <p className="muted">
+          Built for malls, airports, retail, events—anywhere foot traffic matters.
         </p>
       </div>
 
-      <div className="grid grid--features">
-        {cards.map((card, index) => (
-          <motion.article
-            key={card.title}
-            className="feature-card"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <div className="feature-card__icon">{card.icon}</div>
-            <h3 className="feature-card__title">{card.title}</h3>
-            <p className="feature-card__description">{card.description}</p>
-          </motion.article>
+      <div className="featuresGrid">
+        {FEATURES.map((f) => (
+          <div key={f.title} className="featureCard cardHover">
+            <div className="featureIcon" aria-hidden="true">
+              <Icon type={f.icon} />
+            </div>
+
+            <h3 className="featureTitle">{f.title}</h3>
+            <p className="featureDesc">{f.desc}</p>
+          </div>
         ))}
       </div>
-    </section>
+    </>
   );
-};
-
-export default Features;
+}

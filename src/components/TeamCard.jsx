@@ -1,26 +1,15 @@
-import React from "react";
+export default function TeamCard({ member }) {
+  const initial = member?.name?.trim()?.[0]?.toUpperCase() || "A";
 
-const TeamCard = ({ name, title, description, photo }) => {
   return (
-    <article className="team-card">
-      <div className="team-card__avatar">
-        {photo ? (
-          <img
-            src={photo}
-            alt={name}
-            className="team-card__photo"
-          />
-        ) : (
-          <span className="team-card__initial">
-            {name ? name.charAt(0) : "M"}
-          </span>
-        )}
+    <div className="glassCard teamCard cardHover">
+      <div className="teamAvatar" aria-hidden="true">
+        <div className="teamInitial">{initial}</div>
       </div>
-      <h3 className="team-card__name">{name}</h3>
-      <p className="team-card__role">{title}</p>
-      <p className="team-card__description">{description}</p>
-    </article>
-  );
-};
 
-export default TeamCard;
+      <h3 className="teamName">{member.name}</h3>
+      <div className="teamRole">{member.role}</div>
+      <p className="teamBio">{member.bio}</p>
+    </div>
+  );
+}

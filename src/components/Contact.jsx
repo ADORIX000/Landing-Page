@@ -1,117 +1,89 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
 
-const Contact = () => {
-  const [submitted, setSubmitted] = useState(false);
+export default function Contact() {
+  const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e) => {
+  function onSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
-    // here you would normally POST to your backend
-  };
+    setSent(true);
+    setTimeout(() => setSent(false), 3500);
+  }
 
   return (
-    <section className="section section--contact">
-      <div className="section__header">
-        <p className="section__eyebrow">Contact</p>
-        <h2 className="section__title">Let’s Talk About Your Kiosk</h2>
-        <p className="section__subtitle">
-          Ready to bring intelligent, on-site advertising into your space? Drop
-          us a message and we’ll get back with a tailored walkthrough.
+    <>
+      <div className="sectionHead">
+        <h2 className="h2">Ready to test a kiosk in your venue?</h2>
+        <p className="muted">
+          Tell us where you plan to deploy—we’ll recommend a pilot setup.
         </p>
       </div>
 
-      <div className="contact">
-        <motion.form
-          className="contact__form"
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <div className="contact__row">
-            <div className="contact__field">
-              <label htmlFor="name">Name</label>
-              <input id="name" type="text" required placeholder="John Doe" />
+      <div className="contactGrid">
+        <form className="glassCard form cardHover" onSubmit={onSubmit}>
+          <div className="row">
+            <div className="field">
+              <span>Name</span>
+              <input placeholder="Your name" required />
             </div>
-
-            <div className="contact__field">
-              <label htmlFor="company">Company</label>
-              <input
-                id="company"
-                type="text"
-                required
-                placeholder="Brand / Organization"
-              />
+            <div className="field">
+              <span>Company / Venue</span>
+              <input placeholder="Company or venue name" required />
             </div>
           </div>
 
-          <div className="contact__row">
-            <div className="contact__field">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                required
-                placeholder="you@example.com"
-              />
-            </div>
-
-            <div className="contact__field">
-              <label htmlFor="phone">Phone</label>
-              <input
-                id="phone"
-                type="tel"
-                placeholder="+1 (62) 987 7543"
-              />
-            </div>
+          <div className="field">
+            <span>Email</span>
+            <input type="email" placeholder="you@company.com" required />
           </div>
 
-          <div className="contact__field">
-            <label htmlFor="message">Project details</label>
+          <div className="field">
+            <span>Message</span>
             <textarea
-              id="message"
               rows="4"
+              placeholder="Number of locations, estimated foot traffic, and your campaign goal…"
               required
-              placeholder="Tell us about where you’d like to deploy ADORIX..."
             />
           </div>
 
-          <button type="submit" className="btn btn--primary btn--full">
+          <button className="btn btn--primary btn--full" type="submit">
             Send Message
           </button>
 
-          {submitted && (
-            <p className="contact__success">
-              Thank you! We’ll reach out to you shortly.
+          {sent && <div className="success">Thanks! We’ll get back to you within 24–48 hours.</div>}
+        </form>
+
+        <div className="stack">
+          <div className="glassCard infoCard cardHover">
+            <h3 className="h3">What happens next?</h3>
+            <p className="tiny">
+              We’ll review your venue details and propose a pilot plan with recommended setup.
             </p>
-          )}
-        </motion.form>
 
-        <motion.div
-          className="contact__info"
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <div className="contact__card">
-            <h3>Talk to us</h3>
-            <p className="contact__highlight">+1 (62) 987 7543</p>
-            <p className="contact__highlight">hello@adorix.ai</p>
+            <div className="kv">
+              <span className="kv__k">Response time</span>
+              <span className="kv__v">24–48 hours</span>
+            </div>
+            <div className="kv">
+              <span className="kv__k">Pilot options</span>
+              <span className="kv__v">Single / Multi-venue</span>
+            </div>
+            <div className="kv">
+              <span className="kv__k">Support</span>
+              <span className="kv__v">Onboarding + setup</span>
+            </div>
           </div>
-          <div className="contact__card">
-            <h3>Perfect for</h3>
-            <ul>
-              <li>Shopping malls & retail chains</li>
-              <li>Airports & transport hubs</li>
-              <li>Hotels, gyms & co-working spaces</li>
-              <li>Events, exhibitions & showrooms</li>
-            </ul>
+
+          <div className="glassCard infoCard cardHover">
+            <h3 className="h3">Email</h3>
+            <p className="tiny">hello@adorixit.com</p>
+
+            <h3 className="h3" style={{ marginTop: 12 }}>
+              Location
+            </h3>
+            <p className="tiny">Colombo • Remote-ready deployments</p>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </>
   );
-};
-
-export default Contact;
+}
