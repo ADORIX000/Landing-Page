@@ -44,8 +44,7 @@ export default function Hero() {
       {/* Right */}
       <div className="glassCard hero__card cardHover">
         <div className="hero__cardTop">
-          <span className="hero__badge">Live Kiosk Preview</span>
-          <span className="hero__mini">Demo loop</span>
+          <span className="hero__badge hero__badge--center">Live Kiosk Preview</span>
         </div>
 
         <div className="mediaFrame">
@@ -77,21 +76,6 @@ export default function Hero() {
             <span className="telemetryVal">Positive</span>
           </div>
         </div>
-
-        <div className="hero__cardBottom">
-          <div className="miniFeature">
-            <h4>Smart Targeting</h4>
-            <p>Ads adapt to audience signals in real time.</p>
-          </div>
-          <div className="miniFeature">
-            <h4>Actionable Insights</h4>
-            <p>Measure attention, visits, and conversions.</p>
-          </div>
-        </div>
-
-        <p className="hero__note">
-          Tip: replace the preview with a real <code>&lt;video&gt;</code> file when ready.
-        </p>
       </div>
     </div>
   );
