@@ -1,7 +1,7 @@
 import TeamCard from "./TeamCard.jsx";
 
 const MEMBERS = [
-  { name: "Ayaan Perera", role: "Founder & Product", bio: "Turns venue problems into simple product flows." },
+  { name: "Deeghayu Arandara", role: "Founder & Product", bio: "Turns venue problems into simple product flows." },
   { name: "Nimali Silva", role: "Operations Lead", bio: "Keeps deployments smooth and consistent." },
   { name: "Kasun Jayawardena", role: "Software Engineer", bio: "Builds fast, reliable dashboards and tools." },
   { name: "Sanjana Rodrigo", role: "AI/ML Engineer", bio: "Focuses on audience signals and insight quality." },
