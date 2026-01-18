@@ -1,3 +1,5 @@
+import demoVideo from "../assets/demo.mp4";
+
 export default function Hero() {
   return (
     <div className="hero__grid">
@@ -10,7 +12,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero__subtitle">
-          ADORIX helps venues run on-site campaigns that adapt in real time etecting attention,
+          ADORIX helps venues run on-site campaigns that adapt in real time—detecting attention,
           learning audiences, and delivering the right creative at the right moment.
         </p>
 
@@ -43,33 +45,34 @@ export default function Hero() {
       <div className="glassCard hero__card cardHover">
         <div className="hero__cardTop">
           <span className="hero__badge">Live Kiosk Preview</span>
-          <span className="hero__mini">Replace with your demo video/image</span>
+          <span className="hero__mini">Demo loop</span>
         </div>
 
         <div className="mediaFrame">
-          <div className="mediaFrame__placeholder">
-            <div className="mediaFrame__ring" />
-            <p className="mediaFrame__text">
-              Drop a video here later <br />
-              <span>(16:9)</span>
-            </p>
-          </div>
+          <video
+            className="mediaFrame__video"
+            src={demoVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
         </div>
 
         <div className="hero__telemetry">
-          <div className="telemetryRow">
+          <div className="telemetryRow telemetryRow--dwell">
             <span className="telemetryKey">Dwell</span>
             <span className="telemetryVal">18s</span>
           </div>
-          <div className="telemetryRow">
+          <div className="telemetryRow telemetryRow--engagement">
             <span className="telemetryKey">Engagement</span>
             <span className="telemetryVal">High</span>
           </div>
-          <div className="telemetryRow">
+          <div className="telemetryRow telemetryRow--audience">
             <span className="telemetryKey">Audience</span>
             <span className="telemetryVal">20–35</span>
           </div>
-          <div className="telemetryRow">
+          <div className="telemetryRow telemetryRow--mood">
             <span className="telemetryKey">Mood</span>
             <span className="telemetryVal">Positive</span>
           </div>
@@ -87,7 +90,7 @@ export default function Hero() {
         </div>
 
         <p className="hero__note">
-          Tip: you can later replace the preview box with a real <code>&lt;video&gt;</code> or kiosk render.
+          Tip: replace the preview with a real <code>&lt;video&gt;</code> file when ready.
         </p>
       </div>
     </div>

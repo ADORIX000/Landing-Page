@@ -398,7 +398,6 @@ button { font: inherit; }
   font-size: 12px;
   font-weight: 900;
 }
-.hero__mini { color: var(--muted2); font-size: 12px; }
 
 .mediaFrame {
   border-radius: 18px;
