@@ -7,7 +7,7 @@ export default function Footer() {
         {/* Brand Section */}
         <div className="footer__section footer__brand-section">
           <div className="footer__brand">
-            <div className="footer__mark">A</div>
+            <img src="/logo.png" alt="ADORIX Logo" className="nav__logo" />
             <div>
               <div className="footer__title">ADORIX</div>
               <div className="footer__subtitle">AI Kiosk for smarter on-site advertising</div>
